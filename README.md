@@ -2,6 +2,8 @@
 
 Jinn-window wraps [jsPanel](https://jspanel.de) into a webcomponent.
 
+Kudos to the jsPanel team for providing such a great window component.
+
 ## Installation
 
 ```bash
@@ -18,47 +20,61 @@ npm i jinn-window
 <jinn-window name="foo"></jinn-window>
 ```
 
-### Arguments
+## `jinn-window` attributes
 
-#### ```name``` set the name fo the windows
 
-#### ```title``` set the title of the windows
+| Attribute | Description | Default |
+| --------- | -----------| ------- |
+| name | set the name of the window | - |
+| title | set the title of the window | - |
+| open | opens the window on page load. Marker attribute | - |
+| position | optional position of window. see below | center |
+| snap | snaps window to corners or centers of each border | true |
+| headercontrols | a list icon names to show on toolbar for resizing the window | minimize, smallify, close | 
+| size | space-separated width + height e.g. '100 50' | auto (fit content) |
 
-#### ```open``` open the window on pageload
+### position
 
+Allows to position a window initially. One of the following values 
+is allowed:
+* 'center'
+* 'left-top'
+* 'center-top'
+* 'right-top'
+* 'right-center'
+* 'right-bottom'
+* 'center-bottom'
+* 'left-bottom'
+* 'left-center'
 Default value: none
 
-#### ```headercontrols``` enable / disable header controls.
+### headercontrols
 
-Possible adjustments:
-close, maximize , normalize, minimize, smallify
+One of:
+* smallify - shrink to header
+* minimize - minimze to bottom of page
+* normalize - restore last size
+* maximize - take the full page
+* close - close button
+* closeonly - shortcut for only close button
+* none - no controls at all
 
-Default value: minimize, smallify, close
+## Events
 
-#### ```position```html set the possition of the window
+### window-opened
 
-Possible adjustments: center, left-top, center-top, right-top, right-center, 
-right-bottom, center-bottom, left-bottom, left-center
+| Param | Description |
+| ---- | ---- | 
+| name | the name of the window just being opened |
+| title | the title of the window just being opened |
 
-Default value: center
 
-#### ```snap``` Snap the windows to the corner
+## Examples
 
-Possible adjustments: true or false
-
-Default value: true
-
-#### ```size``` define the window size
-
-Possible adjustments: "height width", auto
-
-Defualt value: auto
-
-### Examples
-
-#### Bind it on a button
+### Bind it on a button
 
 ```html
+<jinn-window name="42"></jinn-window>
 <button id="openLeft">Open Left</button>
 
 <script type="text/javascript">
@@ -76,14 +92,14 @@ Defualt value: auto
 
 ```
 
-#### Open a green window with a fixed size in the center on pageload
+### Open a green window with a fixed size in the center on pageload
 
 ```html
 <jinn-window name="5"  open position="center" size="150 50" title="center"><div class="center-box">center</div></jinn-window>
 
 ```
 
-#### Consider the [demo-page](demo/index.html) for more examples
+### Consider the [demo-page](demo/index.html) for more examples
 
 ## Testing with Web Test Runner
 

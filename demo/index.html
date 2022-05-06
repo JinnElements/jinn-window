@@ -19,11 +19,55 @@
       width: 1rem !important;
       height: 1rem !important;}
 
+    svg{
+      width:2rem;
+      height:2rem;
+    }
+/*
+    jinn-window *{
+      display: none;
+    }
+*/
+    jinn-window > *:nth-child(1){
+      width: 3rem;
+      height: 2rem;
+    }
+    .toolbar{
+      display: flex;
+      flex-direction: row;
+    }
+
   </style>
 </head>
 <body>
-<div id="demo"></div>
-<jinn-window name="23"  headercontrols="close" open position="right-bottom" title="right-bottom">right-bottom</jinn-window>
+<!--<div id="demo"></div>-->
+<div class="toolbar">
+<jinn-window name="first"  headercontrols="close" position="right-bottom" title="right-bottom">
+  <svg slot="icon" aria-hidden="true" class="svg-inline&#45;&#45;fa fa-clipboard-list fa-w-12 block fa-2x text-purple-800" data-fa-i2svg="" data-icon="clipboard-list" data-prefix="fad" focusable="false" role="img" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><g class="fa-group"><path class="fa-secondary" d="M336 64h-80a64 64 0 0 1 64 64H64a64 64 0 0 1 64-64H48a48 48 0 0 0-48 48v352a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V112a48 48 0 0 0-48-48zM96 424a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm0-96a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm0-96a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm224 176a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8zm0-96a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8zm0-96a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8z" fill="currentColor"></path><path class="fa-primary" d="M96 376a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zm0-96a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zm0-96a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zM256 64a64 64 0 0 0-128 0 64 64 0 0 0-64 64h256a64 64 0 0 0-64-64zm-64 24a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24z" fill="currentColor"></path></g></svg>
+  right-bottom
+</jinn-window>
+<jinn-window name="second"  headercontrols="close" position="center-top" title="right-bottom">
+  <img src="light.png" slot="icon"/>
+  center-top
+</jinn-window>
+<jinn-window name="second"  headercontrols="close" position="right-center" title="right-center">
+  <button slot="icon">right center</button>
+  right-center
+</jinn-window>
+</div>
+
+<div class="text-block">
+  Some text to see if inlining
+  <jinn-window name="second"  headercontrols="close" position="center" title="right-bottom">
+    <img src="light.png" slot="icon"/>
+    center
+  </jinn-window>
+  does not interfere with text flow.
+</div>
+<jinn-window name="42"  position="left-bottom" open title="left-bottom">
+  <h1>hey</h1>
+<!--  <svg aria-hidden="true" class="svg-inline&#45;&#45;fa fa-clipboard-list fa-w-12 block fa-2x text-purple-800" data-fa-i2svg="" data-icon="clipboard-list" data-prefix="fad" focusable="false" role="img" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><g class="fa-group"><path class="fa-secondary" d="M336 64h-80a64 64 0 0 1 64 64H64a64 64 0 0 1 64-64H48a48 48 0 0 0-48 48v352a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V112a48 48 0 0 0-48-48zM96 424a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm0-96a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm0-96a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm224 176a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8zm0-96a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8zm0-96a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8z" fill="currentColor"></path><path class="fa-primary" d="M96 376a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zm0-96a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zm0-96a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zM256 64a64 64 0 0 0-128 0 64 64 0 0 0-64 64h256a64 64 0 0 0-64-64zm-64 24a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24z" fill="currentColor"></path></g></svg>-->
+</jinn-window>
 <jinn-window name="23"  open position="right-top" title="right-top">
   <ul class="right-top">
     <li class="page-list__item" itemscope="" itemtype="https://schema.org/CreativeWork">
@@ -343,24 +387,15 @@
     </li>
   </ul>
 </jinn-window>
+<!--
 <jinn-window name="23"  headercontrols="smallify close" open position="center-bottom" title="center-bottom"><h1>center-bottom</h1></jinn-window>
-<jinn-window name="42"  position="left-bottom"  title="left-bottom"> <svg aria-hidden="true" class="svg-inline--fa fa-clipboard-list fa-w-12 block fa-2x text-purple-800" data-fa-i2svg="" data-icon="clipboard-list" data-prefix="fad" focusable="false" role="img" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><g class="fa-group"><path class="fa-secondary" d="M336 64h-80a64 64 0 0 1 64 64H64a64 64 0 0 1 64-64H48a48 48 0 0 0-48 48v352a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V112a48 48 0 0 0-48-48zM96 424a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm0-96a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm0-96a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm224 176a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8zm0-96a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8zm0-96a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8z" fill="currentColor"></path><path class="fa-primary" d="M96 376a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zm0-96a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zm0-96a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zM256 64a64 64 0 0 0-128 0 64 64 0 0 0-64 64h256a64 64 0 0 0-64-64zm-64 24a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24z" fill="currentColor"></path></g></svg></jinn-window>
+<jinn-window name="42"  position="left-bottom"  title="left-bottom"> <svg aria-hidden="true" class="svg-inline&#45;&#45;fa fa-clipboard-list fa-w-12 block fa-2x text-purple-800" data-fa-i2svg="" data-icon="clipboard-list" data-prefix="fad" focusable="false" role="img" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><g class="fa-group"><path class="fa-secondary" d="M336 64h-80a64 64 0 0 1 64 64H64a64 64 0 0 1 64-64H48a48 48 0 0 0-48 48v352a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V112a48 48 0 0 0-48-48zM96 424a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm0-96a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm0-96a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm224 176a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8zm0-96a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8zm0-96a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8z" fill="currentColor"></path><path class="fa-primary" d="M96 376a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zm0-96a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zm0-96a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zM256 64a64 64 0 0 0-128 0 64 64 0 0 0-64 64h256a64 64 0 0 0-64-64zm-64 24a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24z" fill="currentColor"></path></g></svg></jinn-window>
 <jinn-window name="5"  open position="center" size="150 50" title="center"><div class="center-box">center</div></jinn-window>
+-->
 
-<button id="openLeft">Open Left</button>
+<!--<button id="openLeft">Open Left Bottom</button>-->
 
-<script type="text/javascript">
-  const openButton = document.getElementById("openLeft");
-    const win = document.querySelector("jinn-window[name='42']");
 
-  openButton.addEventListener("click", (e) => {
-    win.open();
-  });
-
-  win.addEventListener("window-opened", (e) => {
-    console.log("window-opened", e.detail)
-  });
-</script>
 
 <section class="page-section g">
   <ul class="page-list g12-xs g9-md g3-md-offset g6-xl g3-xl-offset">
@@ -681,19 +716,6 @@
     </li>
   </ul>
   <div class="g12-xs g3-xl page-display s-half-page">
-    <div class="page-display__block">
-      <div id="waldo-tag-5040" class="waldo-display-unit" data-processed="true" style="min-width: 300px; min-height: 600px;" data-google-query-id="CIbf1NvOyPcCFVz_uwgdoFMMZQ"><div id="google_ads_iframe_/124067137,22580084566/loremipsum300x600FL_1_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/124067137,22580084566/loremipsum300x600FL_1_0" name="google_ads_iframe_/124067137,22580084566/loremipsum300x600FL_1_0" title="3rd party ad content" width="300" height="600" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" role="region" aria-label="Advertisement" tabindex="0" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" data-load-complete="true" data-google-container-id="1" style="border: 0px; vertical-align: bottom;"></iframe></div></div>
-      <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-9381543993488137"
-           data-ad-slot="8777518508"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script> -->
-    </div>
     <div class="page-display__block mt72">
       <div id="waldo-tag-5042" class="waldo-display-unit" data-processed="true" style="min-width: 300px; min-height: 600px;" data-google-query-id="CIff1NvOyPcCFVz_uwgdoFMMZQ"><div id="google_ads_iframe_/124067137,22580084566/loremipsum300x600FL_2_0__container__" style="border: 0pt none; display: inline-block; width: 160px; height: 600px;"><iframe frameborder="0" src="https://d0dd6f06df340ff17d302990b8926970.safeframe.googlesyndication.com/safeframe/1-0-38/html/container.html" id="google_ads_iframe_/124067137,22580084566/loremipsum300x600FL_2_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="160" height="600" data-is-safeframe="true" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" role="region" aria-label="Advertisement" tabindex="0" data-google-container-id="2" data-load-complete="true" style="border: 0px; vertical-align: bottom;"></iframe></div></div>
     </div>
