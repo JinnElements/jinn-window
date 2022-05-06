@@ -1,6 +1,6 @@
 # \<jinn-window>
 
-This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
+Jinn-window wraps [jsPanel](https://jspanel.de) into a webcomponent.
 
 ## Installation
 
@@ -15,22 +15,75 @@ npm i jinn-window
   import 'jinn-window/jinn-window.js';
 </script>
 
-<jinn-window></jinn-window>
+<jinn-window name="foo"></jinn-window>
 ```
 
-## Linting and formatting
+### Arguments
 
-To scan the project for linting and formatting errors, run
+#### ```name``` set the name fo the windows
 
-```bash
-npm run lint
+#### ```title``` set the title of the windows
+
+#### ```open``` open the window on pageload
+
+Default value: none
+
+#### ```headercontrols``` enable / disable header controls.
+
+Possible adjustments:
+close, maximize , normalize, minimize, smallify
+
+Default value: minimize, smallify, close
+
+#### ```position```html set the possition of the window
+
+Possible adjustments: center, left-top, center-top, right-top, right-center, 
+right-bottom, center-bottom, left-bottom, left-center
+
+Default value: center
+
+#### ```snap``` Snap the windows to the corner
+
+Possible adjustments: true or false
+
+Default value: true
+
+#### ```size``` define the window size
+
+Possible adjustments: "height width", auto
+
+Defualt value: auto
+
+### Examples
+
+#### Bind it on a button
+
+```html
+<button id="openLeft">Open Left</button>
+
+<script type="text/javascript">
+  const openButton = document.getElementById("openLeft");
+    const win = document.querySelector("jinn-window[name='42']");
+
+  openButton.addEventListener("click", (e) => {
+    win.open();
+  });
+
+  win.addEventListener("window-opened", (e) => {
+    console.log("window-opened", e.detail)
+  });
+</script>
+
 ```
 
-To automatically fix linting and formatting errors, run
+#### Open a green window with a fixed size in the center on pageload
 
-```bash
-npm run format
+```html
+<jinn-window name="5"  open position="center" size="150 50" title="center"><div class="center-box">center</div></jinn-window>
+
 ```
+
+#### Consider the [demo-page](demo/index.html) for more examples
 
 ## Testing with Web Test Runner
 
