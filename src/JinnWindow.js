@@ -40,7 +40,7 @@ export class JinnWindow extends HTMLElement {
     this.snap = this.hasAttribute('snap') ? this.getAttribute('snap') : 'true';
     this.headercontrols = this.hasAttribute('headercontrols')
       ? this.getAttribute('headercontrols')
-      : 'minimize smallify close';
+      : 'minimize smallify close normalize';
     this.size = this.hasAttribute('size') ? this.getAttribute('size') : 'auto';
     this.panel = null;
 
