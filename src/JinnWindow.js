@@ -144,5 +144,7 @@ export class JinnWindow extends HTMLElement {
     this.dispatchEvent(event);
   }
 }
+if (!customElements.get('jinn-window')) {
+  customElements.define('jinn-window', JinnWindow);
+}
 
-customElements.define('jinn-window', JinnWindow);
