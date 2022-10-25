@@ -1,8 +1,8 @@
 {
-  "name": "jinn-window",
+  "name": "@jinntec/jinn-window",
   "description": "Webcomponent jinn-window following open-wc recommendations",
   "license": "MIT",
-  "author": "jinn-window",
+  "author": "joern turner",
   "version": "1.0.0",
   "main": "index.js",
   "module": "index.js",
