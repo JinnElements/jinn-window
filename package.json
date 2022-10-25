@@ -21,6 +21,9 @@
     "dist/jinn-window.js.map",
     "!.DS_Store"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "jspanel4": "^4.14.0"
   },
