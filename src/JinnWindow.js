@@ -113,16 +113,26 @@ export class JinnWindow extends HTMLElement {
   }
 
   open() {
-    const slots = this.shadowRoot.querySelectorAll('slot');
+    if (this.panel) {
+      return;
+    }
+    // const slots = this.shadowRoot.querySelectorAll('slot');
 
     // ### grabbing the content from the default slot which is second in template
-    const content = slots[1].assignedNodes();
+    const template = this.querySelector('template');
+    if (!template) {
+      console.error('no template specified');
+      return;
+    }
+    const clone = document.importNode(template.content, true);
+    // const content = slots[1].assignedNodes();
 
     // ### create wrapper div to hold content
     const result = document.createElement('div');
-    content.forEach(node => {
-      result.appendChild(node.cloneNode(true));
-    });
+    result.appendChild(clone);
+    // content.forEach(node => {
+    //   result.appendChild(node.cloneNode(true));
+    // });
 
     const container = this.shadowRoot.querySelector('.container')
     this.panel = jsPanel.create({
