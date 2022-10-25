@@ -3,7 +3,7 @@
   "description": "Webcomponent jinn-window following open-wc recommendations",
   "license": "MIT",
   "author": "jinn-window",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "main": "index.js",
   "module": "index.js",
   "scripts": {
@@ -15,25 +15,32 @@
     "test": "web-test-runner --coverage",
     "test:watch": "web-test-runner --watch"
   },
+  "files": [
+    "src/**.*",
+    "dist/jinn-window.js",
+    "dist/jinn-window.js.map",
+    "!.DS_Store"
+  ],
   "dependencies": {
     "jspanel4": "^4.14.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.17.12",
     "@custom-elements-manifest/analyzer": "^0.4.17",
     "@open-wc/eslint-config": "^4.3.0",
     "@open-wc/testing": "next",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-strip": "^2.1.0",
     "@web/dev-server": "^0.1.28",
     "@web/test-runner": "^0.13.22",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "husky": "^4.3.8",
     "lint-staged": "^10.5.4",
+    "np": "^7.6.2",
     "prettier": "^2.4.1",
-    "@rollup/plugin-node-resolve": "^13.3.0",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-minify-html-literals": "^1.2.6",
-    "@babel/plugin-proposal-class-properties": "^7.17.12",
-    "@rollup/plugin-strip": "^2.1.0",
     "rollup-plugin-terser": "^7.0.2"
   },
   "customElements": "custom-elements.json",

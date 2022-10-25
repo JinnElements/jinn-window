@@ -20,10 +20,17 @@ export class JinnWindow extends HTMLElement {
   connectedCallback() {
     const style = `
           :host {
-            display: inline-block;
+            display: block;
             background: transparent;
           }
-          
+          .container{
+            position:fixed;
+            left:0;
+            top:0;
+            z-index:-1;
+            width:100vw;
+            height:100vh;
+          }
           #default{
             display:none;
           }
@@ -46,8 +53,10 @@ export class JinnWindow extends HTMLElement {
         `;
 
     const html = `
-          <button id="iconBtn"><slot name="icon"></slot></button>  
-          <slot id="default"></slot>
+          <button id="iconBtn"><slot name="icon"></slot></button> 
+          <div class="container">
+            <slot></slot>
+          </div>
         `;
 
     this.shadowRoot.innerHTML = `
@@ -115,6 +124,7 @@ export class JinnWindow extends HTMLElement {
       result.appendChild(node.cloneNode(true));
     });
 
+    const container = this.shadowRoot.querySelector('.container')
     this.panel = jsPanel.create({
       headerTitle: this.title,
       theme: 'light',
@@ -133,7 +143,10 @@ export class JinnWindow extends HTMLElement {
           : 'remove',
       },
       content: result,
+      container:this.shadowRoot.querySelector('.container'),
     });
+    // this.appendChild(this.panel);
+    // this.panel.resize({width:500,height:200});
 
     const event = new CustomEvent('window-opened', {
       composed: true,
