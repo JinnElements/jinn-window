@@ -3,7 +3,7 @@
   "description": "Webcomponent jinn-window following open-wc recommendations",
   "license": "MIT",
   "author": "joern turner",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "module": "index.js",
   "scripts": {
