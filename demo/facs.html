@@ -58,16 +58,12 @@
 <div class="toolbar">
 <jinn-window name="first"  headercontrols="close" position="right-bottom" title="right-bottom">
   <svg slot="icon" aria-hidden="true" class="svg-inline&#45;&#45;fa fa-clipboard-list fa-w-12 block fa-2x text-purple-800" data-fa-i2svg="" data-icon="clipboard-list" data-prefix="fad" focusable="false" role="img" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><g class="fa-group"><path class="fa-secondary" d="M336 64h-80a64 64 0 0 1 64 64H64a64 64 0 0 1 64-64H48a48 48 0 0 0-48 48v352a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V112a48 48 0 0 0-48-48zM96 424a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm0-96a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm0-96a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm224 176a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8zm0-96a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8zm0-96a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8z" fill="currentColor"></path><path class="fa-primary" d="M96 376a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zm0-96a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zm0-96a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zM256 64a64 64 0 0 0-128 0 64 64 0 0 0-64 64h256a64 64 0 0 0-64-64zm-64 24a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24z" fill="currentColor"></path></g></svg>
-  right-bottom
+  <template>right-bottom</template>
 </jinn-window>
 <jinn-window name="second"  headercontrols="close" position="center-top" title="right-bottom">
-  <img src="light.png" slot="icon"/>
-  center-top
+  <template>center-top</template>
 </jinn-window>
-<jinn-window name="second"  headercontrols="close" position="right-center" title="right-center">
-  <button slot="icon">right center</button>
-  right-center
-</jinn-window>
+
 </div>
 <!--
 <div>Facs test
@@ -97,16 +93,17 @@
   Some text to see if inlining
   <jinn-window name="second"  headercontrols="close" position="center" title="right-bottom">
     <img src="light.png" slot="icon"/>
-    center
+    <template>center</template>
   </jinn-window>
   does not interfere with text flow.
 </div>
 <jinn-window name="42"  position="left-bottom" open title="left-bottom">
-  <h1>hey</h1>
+  <template><h1>hey</h1></template>
 
 <!--  <svg aria-hidden="true" class="svg-inline&#45;&#45;fa fa-clipboard-list fa-w-12 block fa-2x text-purple-800" data-fa-i2svg="" data-icon="clipboard-list" data-prefix="fad" focusable="false" role="img" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><g class="fa-group"><path class="fa-secondary" d="M336 64h-80a64 64 0 0 1 64 64H64a64 64 0 0 1 64-64H48a48 48 0 0 0-48 48v352a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V112a48 48 0 0 0-48-48zM96 424a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm0-96a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm0-96a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm224 176a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8zm0-96a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8zm0-96a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8z" fill="currentColor"></path><path class="fa-primary" d="M96 376a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zm0-96a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zm0-96a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zM256 64a64 64 0 0 0-128 0 64 64 0 0 0-64 64h256a64 64 0 0 0-64-64zm-64 24a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24z" fill="currentColor"></path></g></svg>-->
 </jinn-window>
 <jinn-window name="23"  open position="right-top" title="right-top">
+  <template>
   <ul class="right-top">
     <li class="page-list__item" itemscope="" itemtype="https://schema.org/CreativeWork">
       <h2 class="page-list__title f5 cl-orange mb16" itemprop="name">
@@ -131,6 +128,7 @@
       <blockquote class="page-list__blockquote">Just say anything, George, say what ever's natural, the first thing that comes to your mind. Take that you mutated son-of-a-bitch. My pine, why you. You space bastard, you killed a pine. You do? Yeah, it's 8:00. Hey, McFly, I thought I told you never to come in here. Well it's gonna cost you. How much money you got on you?</blockquote>
     </li>
   </ul>
+</template>
 </jinn-window>
 <!--
 <jinn-window name="23"  headercontrols="smallify close" open position="center-bottom" title="center-bottom"><h1>center-bottom</h1></jinn-window>
