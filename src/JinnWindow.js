@@ -1,4 +1,4 @@
-import { jsPanel } from '../node_modules/jspanel4/es6module/jspanel.min.js';
+import { jsPanel } from '../node_modules/jspanel4/es6module/jspanel.js';
 
 /**
  * Wraps jsPanel4 and exposes a small subset of it as web component.
@@ -153,7 +153,7 @@ export class JinnWindow extends HTMLElement {
           : 'remove',
       },
       content: result,
-      container:this.shadowRoot.querySelector('.container'),
+      container:document.body,
     });
     // this.appendChild(this.panel);
     // this.panel.resize({width:500,height:200});
