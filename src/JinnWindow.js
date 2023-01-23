@@ -110,9 +110,16 @@ export class JinnWindow extends HTMLElement {
     if (this.hasAttribute('open') && !this.panel) {
       this.open();
     }
+
+    // this.closeHandler = document.addEventListener('jspanelclosed',this.close, false);
+    document.addEventListener('jspanelclosed',ev => {
+      this.panel = null;
+      console.log('Panel closed',this.panel,ev)
+    }, false);
   }
 
   open() {
+    console.log('panel open',this.panel)
     if (this.panel) {
       return;
     }
@@ -133,8 +140,7 @@ export class JinnWindow extends HTMLElement {
     // content.forEach(node => {
     //   result.appendChild(node.cloneNode(true));
     // });
-
-    const container = this.shadowRoot.querySelector('.container')
+    // const container = this.shadowRoot.querySelector('.container')
     this.panel = jsPanel.create({
       headerTitle: this.title,
       theme: 'light',
@@ -153,19 +159,17 @@ export class JinnWindow extends HTMLElement {
           : 'remove',
       },
       content: result,
-      container:document.body,
     });
-    // this.appendChild(this.panel);
-    // this.panel.resize({width:500,height:200});
 
     const event = new CustomEvent('window-opened', {
       composed: true,
       bubbles: true,
-      detail: { title: this.title, name: this.name },
+      detail: { title: this.title, name: this.name , content:result},
     });
 
     this.dispatchEvent(event);
   }
+
 }
 if (!customElements.get('jinn-window')) {
   customElements.define('jinn-window', JinnWindow);

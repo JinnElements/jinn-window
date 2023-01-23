@@ -1,72 +1,85 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-  <meta charset="utf-8">
-  <style>
-    body {
-      background: lightblue;
-    }
-  </style>
+    <meta charset="utf-8">
+    <style>
+        body {
+            background: lightblue;
+        }
+    </style>
 
 
-<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.4.3/webcomponents-loader.js"></script>
-<script src="https://unpkg.com/web-animations-js@2.3.2/web-animations-next-lite.min.js"></script>
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.4.3/webcomponents-loader.js"></script>
+    <script src="https://unpkg.com/web-animations-js@2.3.2/web-animations-next-lite.min.js"></script>
 
-<script type="module" src="https://unpkg.com/@teipublisher/pb-components@1.38.6/dist/pb-components-bundle.js"></script>
+    <script type="module"
+            src="https://unpkg.com/@teipublisher/pb-components@1.38.6/dist/pb-components-bundle.js"></script>
 
 
-  <script src="../src/JinnWindow.js" type="module"></script>
-  <link href="../node_modules/jspanel4/es6module/jspanel.css" rel="stylesheet">
-  <style>
-    .center-box {background: #3fbb3f;
-      height: 100%;
-      width: 100%}
-    .right-top {width: 400px;
-      height: 300px}
-    .jsPanel-controlbar svg {
-      width: 1rem !important;
-      height: 1rem !important;}
+    <script src="../src/JinnWindow.js" type="module"></script>
+    <link href="../node_modules/jspanel4/es6module/jspanel.css" rel="stylesheet">
+    <style>
+        .center-box {
+            background: #3fbb3f;
+            height: 100%;
+            width: 100%
+        }
 
-    svg{
-      width:2rem;
-      height:2rem;
-    }
-/*
-    jinn-window *{
-      display: none;
-    }
-*/
-    jinn-window > *:nth-child(1){
-      width: 3rem;
-      height: 2rem;
-    }
-    .toolbar{
-      display: flex;
-      flex-direction: row;
-    }
+        .right-top {
+            width: 400px;
+            height: 300px
+        }
 
-    pb-facsimile {
-      height: 300px;
-      width: 300px;
-      border: 1px solid gray;
-    }
+        .jsPanel-controlbar svg {
+            width: 1rem !important;
+            height: 1rem !important;
+        }
 
-  </style>
+        svg {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        /*
+            jinn-window *{
+              display: none;
+            }
+        */
+        jinn-window > *:nth-child(1) {
+            width: 3rem;
+            height: 2rem;
+        }
+
+        .toolbar {
+            display: flex;
+            flex-direction: row;
+        }
+
+        pb-facsimile {
+            height: 300px;
+            width: 300px;
+            border: 1px solid gray;
+        }
+
+    </style>
 </head>
 <body>
-  <script>
-    window.addEventListener('load', () => {
-        const viewer = document.querySelector('pb-facsimile');
-        const status = document.getElementById('status');
-        window.pbEvents.subscribe('pb-facsimile-status', null, (ev) => {
-            if (ev.detail.status === 'fail') {
-                viewer.style.visibility = 'hidden';
-            } else {
-                viewer.style.visibility = 'visible';
-                status.innerHTML = ev.detail.status;
-            }
+<script>
+    /*
+        window.addEventListener('load', () => {
+            const viewer = document.querySelector('pb-facsimile');
+            const status = document.getElementById('status');
+            window.pbEvents.subscribe('pb-facsimile-status', null, (ev) => {
+                console.log('pb-facsimile-status',ev)
+                if (ev.detail.status === 'fail') {
+                    ev.target.style.visibility = 'hidden';
+                } else {
+                    ev.target.style.visibility = 'visible';
+                    status.innerHTML = ev.detail.status;
+                }
+            });
         });
-    });
+    */
 </script>
 <!--<div id="demo"></div>-->
 <!--
@@ -78,98 +91,160 @@
 </div>
 -->
 <div>
-  Facs JinnWindow
+    Facs JinnWindow
+        <pb-facsimile base-uri="https://apps.existsolutions.com/cantaloupe/iiif/2/"
+                      facsimiles="[&quot;15929_000_IDL5772_BOss12034_IIIp79.jpg&quot;, &quot;15929_000_IDL5772_BOss12034_IIIp80.jpg&quot;, &quot;15929_000_IDL5772_BOss12034_IIIp81.jpg&quot;, &quot;15929_000_IDL5772_BOss12034_IIIp82.jpg&quot;,
+          &quot;does-not-exist.jpg&quot;]" default-zoom-level="0" show-navigator="" reference-strip=""
+                      show-navigation-control="" show-home-control="" show-rotation-control="">
+            <h3 slot="before">Facsimile Viewer Test</h3>
+            <div slot="after">Status: <span id="status"></span></div>
+        </pb-facsimile>
 
-  <jinn-window name="barbar" headercontrols="close" position="right-top" title="Viewer test">
-    <button slot="icon">Go</button>
-    <template>
-      <h1>My facs</h1>
-      
-      <pb-facsimile base-uri="https://apps.existsolutions.com/cantaloupe/iiif/2/" facsimiles="[&quot;15929_000_IDL5772_BOss12034_IIIp79.jpg&quot;, &quot;15929_000_IDL5772_BOss12034_IIIp80.jpg&quot;, &quot;15929_000_IDL5772_BOss12034_IIIp81.jpg&quot;, &quot;15929_000_IDL5772_BOss12034_IIIp82.jpg&quot;,
-      &quot;does-not-exist.jpg&quot;]" default-zoom-level="0" show-navigator="" reference-strip="" show-navigation-control="" show-home-control="" show-rotation-control="">
-  <h3 slot="before">Facsimile Viewer Test</h3>
-  <div slot="after">Status: <span id="status"></span></div>
-</pb-facsimile>
-<ul>
-  <li>
-      <pb-facs-link facs="15929_000_IDL5772_BOss12034_IIIp79.jpg">Page 79</pb-facs-link>, first page
-  </li>
-  <li>
-      <pb-facs-link facs="15929_000_IDL5772_BOss12034_IIIp80.jpg">Page 80</pb-facs-link>
-  </li>
-  <li>
-      <pb-facs-link facs="15929_000_IDL5772_BOss12034_IIIp81.jpg">Page 81</pb-facs-link>
-  </li>
-</ul>   </template>
-  </jinn-window>
+        <pb-facsimile base-uri="https://apps.existsolutions.com/cantaloupe/iiif/2/"
+                      facsimiles="[&quot;15929_000_IDL5772_BOss12034_IIIp79.jpg&quot;, &quot;15929_000_IDL5772_BOss12034_IIIp80.jpg&quot;, &quot;15929_000_IDL5772_BOss12034_IIIp81.jpg&quot;, &quot;15929_000_IDL5772_BOss12034_IIIp82.jpg&quot;,
+          &quot;does-not-exist.jpg&quot;]" default-zoom-level="0" show-navigator="" reference-strip=""
+                      show-navigation-control="" show-home-control="" show-rotation-control="">
+            <h3 slot="before">Facsimile Viewer Test</h3>
+            <div slot="after">Status: <span id="status"></span></div>
+        </pb-facsimile>
 
-    <!--
-  <pb-facsimile subscribe="foo" base-uri="https://apps.existsolutions.com/cantaloupe/iiif/2/" facsimiles="[&quot;15929_000_IDL5772_BOss12034_IIIp79.jpg&quot;, &quot;15929_000_IDL5772_BOss12034_IIIp80.jpg&quot;, &quot;15929_000_IDL5772_BOss12034_IIIp81.jpg&quot;, &quot;15929_000_IDL5772_BOss12034_IIIp82.jpg&quot;,
-                    &quot;does-not-exist.jpg&quot;]" default-zoom-level="0" show-navigator="" reference-strip="" show-navigation-control="" show-home-control="" show-rotation-control="">
+    <jinn-window name="barbar" headercontrols="close" position="right-top" title="Viewer test">
+        <button slot="icon">Go</button>
+        <template>
+            <h1>My facs</h1>
+
+            <pb-facsimile base-uri="https://apps.existsolutions.com/cantaloupe/iiif/2/"
+                          facsimiles="[&quot;15929_000_IDL5772_BOss12034_IIIp79.jpg&quot;, &quot;15929_000_IDL5772_BOss12034_IIIp80.jpg&quot;, &quot;15929_000_IDL5772_BOss12034_IIIp81.jpg&quot;, &quot;15929_000_IDL5772_BOss12034_IIIp82.jpg&quot;,
+      &quot;does-not-exist.jpg&quot;]" default-zoom-level="0" show-navigator="" reference-strip=""
+                          show-navigation-control="" show-home-control="" show-rotation-control="">
                 <h3 slot="before">Facsimile Viewer Test</h3>
+                <div slot="after">Status: <span id="status"></span></div>
             </pb-facsimile>
             <ul>
                 <li>
-                    <pb-facs-link emit="foo" facs="15929_000_IDL5772_BOss12034_IIIp79.jpg">Page 79</pb-facs-link>, first page
+                    <pb-facs-link facs="15929_000_IDL5772_BOss12034_IIIp79.jpg">Page 79</pb-facs-link>
+                    , first page
                 </li>
                 <li>
-                    <pb-facs-link emit="foo" facs="15929_000_IDL5772_BOss12034_IIIp80.jpg">Page 80</pb-facs-link>
+                    <pb-facs-link facs="15929_000_IDL5772_BOss12034_IIIp80.jpg">Page 80</pb-facs-link>
                 </li>
                 <li>
-                    <pb-facs-link emit="foo" facs="15929_000_IDL5772_BOss12034_IIIp81.jpg">Page 81</pb-facs-link>
+                    <pb-facs-link facs="15929_000_IDL5772_BOss12034_IIIp81.jpg">Page 81</pb-facs-link>
                 </li>
             </ul>
-          
--->
-            <!--
-  <pb-facs-link emit="foo" facs="https://img.andersen.sdu.dk/iiif/2/Collin_ms-2_036_lll_082_056B.jpg/full/1200,/0/default.jpg" wait-for="#bar">Page 79</pb-facs-link>, first page
+        </template>
+    </jinn-window>
 
-  <pb-facsimile id="foo" type="image" facsimiles="[&quot;https://img.andersen.sdu.dk/iiif/2/Collin_ms-2_036_lll_082_056B.jpg/full/1200,/0/default.jpg&quot;, &quot;https://img.andersen.sdu.dk/iiif/2/Collin_ms-2_036_lll_082_003B_2_cut.jpg/full/1200,/0/default.jpg&quot;]" 
-      subscribe="foo" default-zoom-level="0" show-navigation-control="show-navigation-control" show-navigator="show-navigator" >
-      <div slot="after">Status: <span id="status2"></span></div>
 
-    </pb-facsimile>
-  -->
-
+    <!--    <button onclick="create()">create pb-facsimile</button>-->
 </div>
 
 
 <!--<button id="openLeft">Open Left Bottom</button>-->
 
 
-
 <section class="page-section g">
-  <ul class="page-list g12-xs g9-md g3-md-offset g6-xl g3-xl-offset">
-    <li class="page-list__item" itemscope="" itemtype="https://schema.org/CreativeWork">
-      <h2 class="page-list__title f5 cl-orange mb16" itemprop="name">
-        <a href="/de/" title="Lorem Ipsum" itemprop="url">Lorem Ipsum</a>
-      </h2>
-      <p class="page-list__description mt0" itemprop="description">Die klassische lateinische Passage, die einfach nie alt wird, genießen Sie so viel (oder so wenig) Lorem ipsum, wie Sie mit unserem einfach zu verwendenden Fülltext-Generator umgehen können.</p>
-      <blockquote class="page-list__blockquote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</blockquote>
-    </li>
-    <li class="page-list__item" itemscope="" itemtype="https://schema.org/CreativeWork">
-      <h2 class="page-list__title f5 cl-orange mb16" itemprop="name">
-        <a href="http://hodoripsum.com/" title="Hodor Ipsum" target="_blank" itemprop="url" rel="noopener">Hodor Ipsum</a>
-      </h2>
-      <p class="page-list__description mt0" itemprop="description">Wenn Sie Game of Thrones noch nicht gesehen haben, schauen Sie es sich gleich an. Wenn Sie dann haben, werden Sie völlig verstehen, warum dieser HORMOR themed Lorem Ipsum Generator einfach genial ist.</p>
-      <blockquote class="page-list__blockquote">Hodor. Hodor hodor, hodor. Hodor hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor; hodor hodor hodor. Hodor. Hodor hodor; hodor hodor - hodor, hodor, hodor hodor. Hodor, hodor. Hodor. Hodor, hodor hodor hodor; hodor hodor; hodor hodor hodor! Hodor hodor HODOR! Hodor hodor... Hodor hodor hodor...</blockquote>
-    </li>
-    <li class="page-list__item" itemscope="" itemtype="https://schema.org/CreativeWork">
-      <h2 class="page-list__title f5 cl-orange mb16" itemprop="name">
-        <a href="https://placehodler.shapelabs.co" title="Placehodler" target="_blank" itemprop="url" rel="noopener">Placehodler</a>
-      </h2>
-      <p class="page-list__description mt0" itemprop="description">Springen Sie zu diesem Blockchain lorem ipsum generator, um Platzhaltertext für stellar kryptowährung zu erhalten, bevor Sie FOMO erhalten.</p>
-      <blockquote class="page-list__blockquote">Satoshi Nakamoto launched lots of decentralisation when Litecoin required many decentralised application, for Augur limited some public key behind lots of multi signature. Blockchain thought some robust smart contract in a algorithm! Since OmiseGo bought few double spend, Augur could be many algo-traded vaporware, but Decred data mining few trusted hard fork!</blockquote>
-    </li>
-  </ul>
-  <div class="g12-xs g3-xl page-display s-half-page">
-    <div class="page-display__block mt72">
-      <div id="waldo-tag-5042" class="waldo-display-unit" data-processed="true" style="min-width: 300px; min-height: 600px;" data-google-query-id="CIff1NvOyPcCFVz_uwgdoFMMZQ"><div id="google_ads_iframe_/124067137,22580084566/loremipsum300x600FL_2_0__container__" style="border: 0pt none; display: inline-block; width: 160px; height: 600px;"><iframe frameborder="0" src="https://d0dd6f06df340ff17d302990b8926970.safeframe.googlesyndication.com/safeframe/1-0-38/html/container.html" id="google_ads_iframe_/124067137,22580084566/loremipsum300x600FL_2_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="160" height="600" data-is-safeframe="true" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" role="region" aria-label="Advertisement" tabindex="0" data-google-container-id="2" data-load-complete="true" style="border: 0px; vertical-align: bottom;"></iframe></div></div>
+    <ul class="page-list g12-xs g9-md g3-md-offset g6-xl g3-xl-offset">
+        <li class="page-list__item" itemscope="" itemtype="https://schema.org/CreativeWork">
+            <h2 class="page-list__title f5 cl-orange mb16" itemprop="name">
+                <a href="/de/" title="Lorem Ipsum" itemprop="url">Lorem Ipsum</a>
+            </h2>
+            <p class="page-list__description mt0" itemprop="description">Die klassische lateinische Passage, die einfach
+                nie alt wird, genießen Sie so viel (oder so wenig) Lorem ipsum, wie Sie mit unserem einfach zu
+                verwendenden Fülltext-Generator umgehen können.</p>
+            <blockquote class="page-list__blockquote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </blockquote>
+        </li>
+        <li class="page-list__item" itemscope="" itemtype="https://schema.org/CreativeWork">
+            <h2 class="page-list__title f5 cl-orange mb16" itemprop="name">
+                <a href="http://hodoripsum.com/" title="Hodor Ipsum" target="_blank" itemprop="url" rel="noopener">Hodor
+                    Ipsum</a>
+            </h2>
+            <p class="page-list__description mt0" itemprop="description">Wenn Sie Game of Thrones noch nicht gesehen
+                haben, schauen Sie es sich gleich an. Wenn Sie dann haben, werden Sie völlig verstehen, warum dieser
+                HORMOR themed Lorem Ipsum Generator einfach genial ist.</p>
+            <blockquote class="page-list__blockquote">Hodor. Hodor hodor, hodor. Hodor hodor hodor hodor hodor. Hodor.
+                Hodor! Hodor hodor, hodor; hodor hodor hodor. Hodor. Hodor hodor; hodor hodor - hodor, hodor, hodor
+                hodor. Hodor, hodor. Hodor. Hodor, hodor hodor hodor; hodor hodor; hodor hodor hodor! Hodor hodor HODOR!
+                Hodor hodor... Hodor hodor hodor...
+            </blockquote>
+        </li>
+        <li class="page-list__item" itemscope="" itemtype="https://schema.org/CreativeWork">
+            <h2 class="page-list__title f5 cl-orange mb16" itemprop="name">
+                <a href="https://placehodler.shapelabs.co" title="Placehodler" target="_blank" itemprop="url"
+                   rel="noopener">Placehodler</a>
+            </h2>
+            <p class="page-list__description mt0" itemprop="description">Springen Sie zu diesem Blockchain lorem ipsum
+                generator, um Platzhaltertext für stellar kryptowährung zu erhalten, bevor Sie FOMO erhalten.</p>
+            <blockquote class="page-list__blockquote">Satoshi Nakamoto launched lots of decentralisation when Litecoin
+                required many decentralised application, for Augur limited some public key behind lots of multi
+                signature. Blockchain thought some robust smart contract in a algorithm! Since OmiseGo bought few double
+                spend, Augur could be many algo-traded vaporware, but Decred data mining few trusted hard fork!
+            </blockquote>
+        </li>
+    </ul>
+    <div class="g12-xs g3-xl page-display s-half-page">
+        <div class="page-display__block mt72">
+            <div id="waldo-tag-5042" class="waldo-display-unit" data-processed="true"
+                 style="min-width: 300px; min-height: 600px;" data-google-query-id="CIff1NvOyPcCFVz_uwgdoFMMZQ">
+                <div id="google_ads_iframe_/124067137,22580084566/loremipsum300x600FL_2_0__container__"
+                     style="border: 0pt none; display: inline-block; width: 160px; height: 600px;">
+                    <iframe frameborder="0"
+                            src="https://d0dd6f06df340ff17d302990b8926970.safeframe.googlesyndication.com/safeframe/1-0-38/html/container.html"
+                            id="google_ads_iframe_/124067137,22580084566/loremipsum300x600FL_2_0"
+                            title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0"
+                            width="160" height="600" data-is-safeframe="true"
+                            sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+                            role="region" aria-label="Advertisement" tabindex="0" data-google-container-id="2"
+                            data-load-complete="true" style="border: 0px; vertical-align: bottom;"></iframe>
+                </div>
+            </div>
+        </div>
+        <!--
+                <div class="page-display__block mt72">
+                    <div id="waldo-tag-5044" class="waldo-display-unit" data-processed="true"
+                         style="min-width: 300px; min-height: 600px;" data-google-query-id="CIjf1NvOyPcCFVz_uwgdoFMMZQ">
+                        <div id="google_ads_iframe_/124067137,22580084566/loremipsum300x600FL_3_0__container__"
+                             style="border: 0pt none; display: inline-block; width: 160px; height: 600px;">
+                            <iframe frameborder="0"
+                                    src="https://d0dd6f06df340ff17d302990b8926970.safeframe.googlesyndication.com/safeframe/1-0-38/html/container.html"
+                                    id="google_ads_iframe_/124067137,22580084566/loremipsum300x600FL_3_0"
+                                    title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0"
+                                    width="160" height="600" data-is-safeframe="true"
+                                    sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+                                    role="region" aria-label="Advertisement" tabindex="0" data-google-container-id="3"
+                                    data-load-complete="true" style="border: 0px; vertical-align: bottom;"></iframe>
+                        </div>
+                    </div>
+                </div>
+        -->
     </div>
-    <div class="page-display__block mt72">
-      <div id="waldo-tag-5044" class="waldo-display-unit" data-processed="true" style="min-width: 300px; min-height: 600px;" data-google-query-id="CIjf1NvOyPcCFVz_uwgdoFMMZQ"><div id="google_ads_iframe_/124067137,22580084566/loremipsum300x600FL_3_0__container__" style="border: 0pt none; display: inline-block; width: 160px; height: 600px;"><iframe frameborder="0" src="https://d0dd6f06df340ff17d302990b8926970.safeframe.googlesyndication.com/safeframe/1-0-38/html/container.html" id="google_ads_iframe_/124067137,22580084566/loremipsum300x600FL_3_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="160" height="600" data-is-safeframe="true" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" role="region" aria-label="Advertisement" tabindex="0" data-google-container-id="3" data-load-complete="true" style="border: 0px; vertical-align: bottom;"></iframe></div></div>
-    </div>
-  </div>
 </section>
+<script>
+
+    // window.addEventListener('es-bridge-openseadragon-loaded', e => console.log(e))
+
+    /*
+    ATTENTION - this is weird stuff - setting timeout to ~ 100 breaks it and creates 2 instances. Using values above make
+    it work again. However behavior is consistent across chrome and FF, so be it for this moment.
+     */
+    window.addEventListener('window-opened',
+        e => {
+            const facs = e.detail.content.querySelector('pb-facsimile');
+
+            setTimeout(() => {
+                if(!facs.viewer) facs._initOpenSeadragon()
+            } ,4)
+        });
+
+/*
+    window.addEventListener('pb-facsimile-status', e => {
+        console.log('pb-facsimile-status',e.detail.status);
+    });
+*/
+</script>
 </body>
 </html>
