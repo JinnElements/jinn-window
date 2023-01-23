@@ -69,16 +69,6 @@
     });
 </script>
 <!--<div id="demo"></div>-->
-<div class="toolbar">
-<jinn-window name="first"  headercontrols="close" position="right-bottom" title="right-bottom">
-  <svg slot="icon" aria-hidden="true" class="svg-inline&#45;&#45;fa fa-clipboard-list fa-w-12 block fa-2x text-purple-800" data-fa-i2svg="" data-icon="clipboard-list" data-prefix="fad" focusable="false" role="img" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><g class="fa-group"><path class="fa-secondary" d="M336 64h-80a64 64 0 0 1 64 64H64a64 64 0 0 1 64-64H48a48 48 0 0 0-48 48v352a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V112a48 48 0 0 0-48-48zM96 424a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm0-96a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm0-96a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm224 176a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8zm0-96a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8zm0-96a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8z" fill="currentColor"></path><path class="fa-primary" d="M96 376a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zm0-96a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zm0-96a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zM256 64a64 64 0 0 0-128 0 64 64 0 0 0-64 64h256a64 64 0 0 0-64-64zm-64 24a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24z" fill="currentColor"></path></g></svg>
-  <template>right-bottom</template>
-</jinn-window>
-<jinn-window name="second"  headercontrols="close" position="center-top" title="right-bottom">
-  <template>center-top</template>
-</jinn-window>
-
-</div>
 <!--
 <div>Facs test
   <pb-facs-link emit="foo" facs="https://img.andersen.sdu.dk/iiif/2/Collin_ms-2_036_lll_082_056B.jpg/full/1200,/0/default.jpg" wait-for="#facsimile">First image</pb-facs-link> 
@@ -90,7 +80,7 @@
 <div>
   Facs JinnWindow
 
-  <jinn-window name="barbar"  headercontrols="close" position="right-center" title="right-center">
+  <jinn-window name="barbar" headercontrols="close" position="right-top" title="Viewer test">
     <button slot="icon">Go</button>
     <template>
       <h1>My facs</h1>
@@ -142,52 +132,7 @@
   -->
 
 </div>
-<div class="text-block">
-  Some text to see if inlining
-  <jinn-window name="second"  headercontrols="close" position="center" title="right-bottom">
-    <img src="light.png" slot="icon"/>
-    <template>center</template>
-  </jinn-window>
-  does not interfere with text flow.
-</div>
-<jinn-window name="42"  position="left-bottom" open title="left-bottom">
-  <template><h1>hey</h1></template>
 
-<!--  <svg aria-hidden="true" class="svg-inline&#45;&#45;fa fa-clipboard-list fa-w-12 block fa-2x text-purple-800" data-fa-i2svg="" data-icon="clipboard-list" data-prefix="fad" focusable="false" role="img" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><g class="fa-group"><path class="fa-secondary" d="M336 64h-80a64 64 0 0 1 64 64H64a64 64 0 0 1 64-64H48a48 48 0 0 0-48 48v352a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V112a48 48 0 0 0-48-48zM96 424a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm0-96a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm0-96a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm224 176a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8zm0-96a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8zm0-96a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8z" fill="currentColor"></path><path class="fa-primary" d="M96 376a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zm0-96a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zm0-96a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zM256 64a64 64 0 0 0-128 0 64 64 0 0 0-64 64h256a64 64 0 0 0-64-64zm-64 24a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24z" fill="currentColor"></path></g></svg>-->
-</jinn-window>
-<jinn-window name="23"  open position="right-top" title="right-top">
-  <template>
-  <ul class="right-top">
-    <li class="page-list__item" itemscope="" itemtype="https://schema.org/CreativeWork">
-      <h2 class="page-list__title f5 cl-orange mb16" itemprop="name">
-        <a href="/de/" title="Lorem Ipsum" itemprop="url">Lorem Ipsum</a>
-      </h2>
-      <p class="page-list__description mt0" itemprop="description">Die klassische lateinische Passage, die einfach nie alt wird, genießen Sie so viel (oder so wenig) Lorem ipsum, wie Sie mit unserem einfach zu verwendenden Fülltext-Generator umgehen können.</p>
-      <blockquote class="page-list__blockquote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</blockquote>
-    </li>
-  
-    <li class="page-list__item" itemscope="" itemtype="https://schema.org/CreativeWork">
-      <h2 class="page-list__title f5 cl-orange mb16" itemprop="name">
-        <a href="http://www.cupcakeipsum.com" title="Cupcake Ipsum" target="_blank" itemprop="url" rel="noopener">Cupcake Ipsum</a>
-      </h2>
-      <p class="page-list__description mt0" itemprop="description">Zuckerhaltige süße Lorem Ipsum? Du hast es mit Cupcake Ipsum, dem einzigen Textgenerator, der Marshmallows, Karottenkuchen und vielleicht sogar eine Kirsche an der Spitze enthält.</p>
-      <blockquote class="page-list__blockquote">Cupcake ipsum dolor. Sit amet marshmallow topping cheesecake muffin. Halvah croissant candy canes bonbon candy. Apple pie jelly beans topping carrot cake danish tart cake cheesecake. Muffin danish chocolate soufflé pastry icing bonbon oat cake. Powder cake jujubes oat cake. Lemon drops tootsie roll marshmallow halvah carrot cake.</blockquote>
-    </li>
-    <li class="page-list__item" itemscope="" itemtype="https://schema.org/CreativeWork">
-      <h2 class="page-list__title f5 cl-orange mb16" itemprop="name">
-        <a href="https://deloreanipsum.com" title="Delorean Ipsum" target="_blank" itemprop="url" rel="noopener">Delorean Ipsum</a>
-      </h2>
-      <p class="page-list__description mt0" itemprop="description">Ein Webgenerator und ein jQuery-Plugin, Delorean Ipsum verwendet das Skript von Back to the Future, um zitierbaren Lorem-ipsum-Text für jedes Projekt zu generieren, egal ob in Vergangenheit oder Gegenwart.</p>
-      <blockquote class="page-list__blockquote">Just say anything, George, say what ever's natural, the first thing that comes to your mind. Take that you mutated son-of-a-bitch. My pine, why you. You space bastard, you killed a pine. You do? Yeah, it's 8:00. Hey, McFly, I thought I told you never to come in here. Well it's gonna cost you. How much money you got on you?</blockquote>
-    </li>
-  </ul>
-</template>
-</jinn-window>
-<!--
-<jinn-window name="23"  headercontrols="smallify close" open position="center-bottom" title="center-bottom"><h1>center-bottom</h1></jinn-window>
-<jinn-window name="42"  position="left-bottom"  title="left-bottom"> <svg aria-hidden="true" class="svg-inline&#45;&#45;fa fa-clipboard-list fa-w-12 block fa-2x text-purple-800" data-fa-i2svg="" data-icon="clipboard-list" data-prefix="fad" focusable="false" role="img" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><g class="fa-group"><path class="fa-secondary" d="M336 64h-80a64 64 0 0 1 64 64H64a64 64 0 0 1 64-64H48a48 48 0 0 0-48 48v352a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V112a48 48 0 0 0-48-48zM96 424a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm0-96a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm0-96a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24zm224 176a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8zm0-96a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8zm0-96a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8z" fill="currentColor"></path><path class="fa-primary" d="M96 376a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zm0-96a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zm0-96a24 24 0 1 0 24 24 23.94 23.94 0 0 0-24-24zM256 64a64 64 0 0 0-128 0 64 64 0 0 0-64 64h256a64 64 0 0 0-64-64zm-64 24a24 24 0 1 1 24-24 23.94 23.94 0 0 1-24 24z" fill="currentColor"></path></g></svg></jinn-window>
-<jinn-window name="5"  open position="center" size="150 50" title="center"><div class="center-box">center</div></jinn-window>
--->
 
 <!--<button id="openLeft">Open Left Bottom</button>-->
 
