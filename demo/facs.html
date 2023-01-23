@@ -88,6 +88,12 @@
     </template>
   </jinn-window>
 
+
+  <pb-facs-link emit="foo" facs="https://img.andersen.sdu.dk/iiif/2/Collin_ms-2_036_lll_082_056B.jpg/full/1200,/0/default.jpg" wait-for="#bar">Page 79</pb-facs-link>, first page
+
+  <pb-facsimile id="bar" type="image" facsimiles="[&quot;https://img.andersen.sdu.dk/iiif/2/Collin_ms-2_036_lll_082_056B.jpg/full/1200,/0/default.jpg&quot;, &quot;https://img.andersen.sdu.dk/iiif/2/Collin_ms-2_036_lll_082_003B_2_cut.jpg/full/1200,/0/default.jpg&quot;]" 
+      subscribe="foo" default-zoom-level="0" show-navigation-control="show-navigation-control" show-navigator="show-navigator" />
+
 </div>
 <div class="text-block">
   Some text to see if inlining
