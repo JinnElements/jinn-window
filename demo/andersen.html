@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            background: lightblue;
+        }
+    </style>
+
+
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.4.3/webcomponents-loader.js"></script>
+    <script src="https://unpkg.com/web-animations-js@2.3.2/web-animations-next-lite.min.js"></script>
+
+    <script type="module"
+            src="https://unpkg.com/@teipublisher/pb-components@1.38.6/dist/pb-components-bundle.js"></script>
+
+
+    <script src="../src/JinnWindow.js" type="module"></script>
+    <link href="../node_modules/jspanel4/es6module/jspanel.css" rel="stylesheet">
+    <style>
+
+        .right-top {
+            width: 400px;
+            height: 300px;
+        }
+
+        .jsPanel-controlbar svg {
+            width: 1rem !important;
+            height: 1rem !important;
+        }
+
+        svg {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        /*
+            jinn-window *{
+              display: none;
+            }
+        */
+        jinn-window > *:nth-child(1) {
+            width: 3rem;
+            height: 2rem;
+        }
+
+        .toolbar {
+            display: flex;
+            flex-direction: row;
+        }
+
+        pb-facsimile {
+            height: 50vh;
+            width: 50vh;
+            border: 1px solid gray;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: auto 1fr 1fr;
+            column-gap: 1em;
+        }
+
+        pb-facsimile.in-window {
+            width: fill-available;
+            min-width: 200px;
+            border: 1px solid gray;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<div class="grid">
+    <div>
+        <pb-facsimile type="image"
+        facsimiles="[&quot;https://img.andersen.sdu.dk/iiif/2/Collin_ms-2_036_lll_082_003B_cut.jpg/full/1200,/0/default.jpg&quot;
+        , &quot;https://img.andersen.sdu.dk/iiif/2/Collin_ms-2_036_lll_082_056B.jpg/full/1200,/0/default.jpg&quot;,
+        &quot;https://img.andersen.sdu.dk/iiif/2/Collin_ms-2_036_lll_082_003B_2_cut.jpg/full/1200,/0/default.jpg&quot;]
+        " default-zoom-level="0"  reference-strip=""
+        show-navigation-control="" >
+            <h3 slot="before">All layers</h3>
+            <div slot="after">Status: <span id="status"></span></div>
+        </pb-facsimile>
+     <ul>
+        <li>
+            <pb-facs-link facs="https://img.andersen.sdu.dk/iiif/2/Collin_ms-2_036_lll_082_003B_cut.jpg/full/1200,/0/default.jpg">First layer</pb-facs-link>
+        </li>
+        <li>
+            <pb-facs-link facs="https://img.andersen.sdu.dk/iiif/2/Collin_ms-2_036_lll_082_056B.jpg/full/1200,/0/default.jpg">Second layer, glued over</pb-facs-link>
+        </li>
+        <li>
+            <pb-facs-link facs="https://img.andersen.sdu.dk/iiif/2/Collin_ms-2_036_lll_082_003B_2_cut.jpg/full/1200,/0/default.jpg">Second layer, back side</pb-facs-link>
+        </li>
+     </ul>
+     </div>
+    <div name="first-layer">
+        <p>
+        <jinn-window name="first-layer-window" headercontrols="close" position="center-top" title="First layer">
+            <button slot="icon"><iron-icon icon="launch"></iron-icon></button>
+            <template>
+                <h1>ms 1 verso</h1>
+                <h3>Collin_ms-2_036_lll_082_003B_cut.jpg</h3>
+                <a href="https://img.andersen.sdu.dk/iiif/2/Collin_ms-2_036_lll_082_003B_cut.jpg/full/1200,/0/default.jpg" target="img">
+                    <iron-icon icon="perm-media"/>
+                </a>
+                
+                <pb-facsimile type="image" class="in-window"
+                    facsimiles="[&quot;https://img.andersen.sdu.dk/iiif/2/Collin_ms-2_036_lll_082_003B_cut.jpg/full/1200,/0/default.jpg&quot;]" 
+                    default-zoom-level="0" 
+                    show-navigation-control="" >
+                </pb-facsimile>
+                <ul>
+                    <li>
+                        <pb-facs-link facs="https://img.andersen.sdu.dk/iiif/2/Collin_ms-2_036_lll_082_003B_cut.jpg/full/1200,/0/default.jpg">First layer</pb-facs-link>
+                    </li>
+                </ul>
+
+            </template>
+        </jinn-window>
+        <br/>
+
+    faldbyde og sælge smaa nydeligt udskaarne Træhuse som de staae i Schweitz med Balkoner og Steenbrokke paa de næsten flade Tage; det er smukke Børn; i Regn og Solskin komme de frem med de udskaarne Huse i smaa Spaanæsker. – For noget over en Snees Aar siden stod der, meest fjern fra Veien en lille Gut, der ogsaa vilde handle, han stod der med saa Alvorligt et Ansigt, og med begge Hænder fast om sin Spaanæske, som vilde han dog ikke slippe den; og just ved denne alvor og ved Fyrens Lidenhed blev han bemærket, ja kaldt paa og gjorde tidt den bedste Handel; selv vidste han ikke hvorfor. Høiere oppe paa Bjerget boede hans Moerfader, der snittede de fine nydelige Huse, og deroppe i det store gamle Skab i Stuen var fuldop af den Slags Udskjæringer, og af Nøddeknækkere knive og Gaffler, og Æsker med deiligt Løvværk om, de springende Gjemser, der var Alt hvad der kunde glæde Barneøine, men den lille Fyr, Rudy blev han kaldt, Rudolph saae med mere Lyst og Længsel til det gamle Gevær under Loftet. engang naar han blev stor og stærk nok til at bruge det skulde det blive hans, havde Morfader sagt. Lille som Rudy var blev han dog sat til at passe Gjederne, men blev ingen god Vogter, han klattrede høiere, holdt af at fange Fuglereder, var forvoven og kjæk; der kom ikke Smiil over hans Ansigt uden naar han stod ved den brusende Fos eller hørte en Lavine rulle saa at det rungede som et Tordenveir. Aldrig legede han med de andre Børn, – kom kun sammen med dem, naar Morfaer engang imellem sendte han ned ved Veien  for at gjøre Handel, og den syntes ikke Rudy slet om. Der vare andre Hjemme han hellere gad tale med, ikke blot at nævne Moerfar, men den store Hund, Ajola, et Arvegods efter Rudys Fader, forældreløs var den lille Gut; Husets øvrige Besætninger af Dyreslægten var desuden en stor Hankat; og den havde meget at betyde for Rudy. Den havde lært ham at klattre. “Kom med ud paa Taget! havde Katten sagt, og det ganske tydeligt. – Det er ogsaa noget vi vide og skulle vide, give vi kun Agt derpaa; naar smaa Børn endnu ikke for os kunne tale, have de dog et Sprog og forstaae et Sprog, vi slet ikke have Øie for,   
+        </p>
+    </div>
+    <div name="second-layer">
+
+        <jinn-window name="second-layer-window" headercontrols="close" position="right-top" title="Second layer">
+            <button slot="icon"><iron-icon icon="launch"></iron-icon></button>
+            <template>
+                <h1>ms 1 verso, overklæbning</h1>
+                <h3>Collin_ms-2_036_lll_082_056B.jpg</h3>
+                <a href="https://img.andersen.sdu.dk/iiif/2/Collin_ms-2_036_lll_082_003B_cut.jpg/full/1200,/0/default.jpg" target="img">
+                    <iron-icon icon="perm-media"/>
+                </a>
+                
+                <pb-facsimile type="image"
+                    facsimiles="[&quot;https://img.andersen.sdu.dk/iiif/2/Collin_ms-2_036_lll_082_003B_2_cut.jpg/full/1200,/0/default.jpg&quot;,
+                    &quot;https://img.andersen.sdu.dk/iiif/2/Collin_ms-2_036_lll_082_056B.jpg/full/1200,/0/default.jpg&quot;]"
+                     default-zoom-level="0"  reference-strip=""
+                    show-navigation-control="" >
+
+                </pb-facsimile>
+                <ul>
+                    <li>
+                        <pb-facs-link facs="https://img.andersen.sdu.dk/iiif/2/Collin_ms-2_036_lll_082_003B_2_cut.jpg/full/1200,/0/default.jpg">overklæbning, bagside</pb-facs-link>
+                    </li>
+                    <li>
+                        <pb-facs-link facs="https://img.andersen.sdu.dk/iiif/2/Collin_ms-2_036_lll_082_056B.jpg/full/1200,/0/default.jpg">Second layer, glued over</pb-facs-link>
+                    </li>
+                  
+                </ul>
+
+            </template>
+        </jinn-window>
+
+        <br/>
+        for at gjøre Handel, og den syntes Rudy ikke stort om, heller være der hjemme, og tale med Moerfader og med Husets andre gode Venner, Besætningen der af Dyreslægten; der var den store Hund Ajola, et Arvegods efter Rudys Fader, og saa var der en stor Hankat, den havde meget at betyde for Rudy. Den havde lært ham at klattre. “Kom med ud paa Taget!” havde Katten sagt og det ganske tydeligt og forstaaeligt, for naar man er Børn og selv endnu ikke kunne tale, forstaaer man udmærket baade Høns og Ænder, Katte og Hunde, de tale os ligesaa forstaaeligt som Fader og Moder tale, man maa bare være rigtig lille; selv Bedstefaders Stok kan vrinske, blive til Hest med Hoved, Been og Hale. For nogle Børn slipper denne Forstaaen tidligere end for Andre og da siger man om dem at de ere langt tilbage, ere grumme længe Børn. Man siger jo saa Meget.
+    </div>
+
+<script>
+
+    // window.addEventListener('es-bridge-openseadragon-loaded', e => console.log(e))
+
+    /*
+    ATTENTION - this is weird stuff - setting timeout to ~ 100 breaks it and creates 2 instances. Using values above make
+    it work again. However behavior is consistent across chrome and FF, so be it for this moment.
+     */
+    window.addEventListener('window-opened',
+        e => {
+            const facs = e.detail.content.querySelector('pb-facsimile');
+
+            setTimeout(() => {
+                if(!facs.viewer) facs._initOpenSeadragon()
+            } ,4)
+        });
+
+/*
+    window.addEventListener('pb-facsimile-status', e => {
+        console.log('pb-facsimile-status',e.detail.status);
+    });
+*/
+</script>
+</body>
+</html>
