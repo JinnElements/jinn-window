@@ -111,19 +111,15 @@ export class JinnWindow extends HTMLElement {
       this.open();
     }
 
-    // this.closeHandler = document.addEventListener('jspanelclosed',this.close, false);
     document.addEventListener('jspanelclosed',ev => {
       this.panel = null;
-      console.log('Panel closed',this.panel,ev)
     }, false);
   }
 
   open() {
-    console.log('panel open',this.panel)
     if (this.panel) {
       return;
     }
-    // const slots = this.shadowRoot.querySelectorAll('slot');
 
     // ### grabbing the content from the default slot which is second in template
     const template = this.querySelector('template');
@@ -132,15 +128,10 @@ export class JinnWindow extends HTMLElement {
       return;
     }
     const clone = document.importNode(template.content, true);
-    // const content = slots[1].assignedNodes();
 
     // ### create wrapper div to hold content
     const result = document.createElement('div');
     result.appendChild(clone);
-    // content.forEach(node => {
-    //   result.appendChild(node.cloneNode(true));
-    // });
-    // const container = this.shadowRoot.querySelector('.container')
     this.panel = jsPanel.create({
       headerTitle: this.title,
       theme: 'light',
