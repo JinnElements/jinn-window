@@ -54,12 +54,34 @@
             display: flex;
             flex-direction: row;
         }
-
         pb-facsimile {
             height: 300px;
             width: 300px;
             border: 1px solid gray;
         }
+
+        .jsPanel{
+            min-height:400px;
+        }
+        .jsPanel-content > div{
+            display: grid;
+            grid-template-rows: 6rem auto;
+            height:100%;
+        }
+
+        .jsPanel pb-facsimile {
+        /*.jsPanel jsPanel-content, .jsPanel pb-facsimile {*/
+            min-width:400px;
+            min-height:400px;
+            width:100%;
+            height: 100%;
+            border: 1px solid gray;
+        }
+        /*
+        #status{
+            height: 5rem;
+        }
+        */
 
     </style>
 </head>
@@ -103,7 +125,8 @@
         <pb-facsimile base-uri="https://apps.existsolutions.com/cantaloupe/iiif/2/"
                       facsimiles="[&quot;15929_000_IDL5772_BOss12034_IIIp79.jpg&quot;, &quot;15929_000_IDL5772_BOss12034_IIIp80.jpg&quot;, &quot;15929_000_IDL5772_BOss12034_IIIp81.jpg&quot;, &quot;15929_000_IDL5772_BOss12034_IIIp82.jpg&quot;,
           &quot;does-not-exist.jpg&quot;]" default-zoom-level="0" show-navigator="" reference-strip=""
-                      show-navigation-control="" show-home-control="" show-rotation-control="">
+                      show-navigation-control="" show-home-control="" show-rotation-control=""
+                      visibility-ratio="100%">
             <h3 slot="before">Facsimile Viewer Test</h3>
             <div slot="after">Status: <span id="status"></span></div>
         </pb-facsimile>
@@ -118,8 +141,8 @@
       &quot;does-not-exist.jpg&quot;]" default-zoom-level="0" show-navigator="" reference-strip=""
                           show-navigation-control="" show-home-control="" show-rotation-control="">
                 <h3 slot="before">Facsimile Viewer Test</h3>
-                <div slot="after">Status: <span id="status"></span></div>
             </pb-facsimile>
+<!--
             <ul>
                 <li>
                     <pb-facs-link facs="15929_000_IDL5772_BOss12034_IIIp79.jpg">Page 79</pb-facs-link>
@@ -132,6 +155,7 @@
                     <pb-facs-link facs="15929_000_IDL5772_BOss12034_IIIp81.jpg">Page 81</pb-facs-link>
                 </li>
             </ul>
+-->
         </template>
     </jinn-window>
 
