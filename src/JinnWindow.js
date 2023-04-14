@@ -23,14 +23,14 @@ export class JinnWindow extends HTMLElement {
             display: block;
             background: transparent;
           }
-          .container{
-            position:fixed;
-            left:0;
-            top:0;
-            z-index:-1;
-            width:100vw;
-            height:100vh;
-          }
+          // .container{
+          //   position:fixed;
+          //   left:0;
+          //   top:0;
+          //   z-index:-1;
+          //   width:100vw;
+          //   height:100vh;
+          // }
           #default{
             display:none;
           }
